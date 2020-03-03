@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
-using Pivotal.Discovery.Client;
-using Steeltoe.Extensions.Configuration;
+using Steeltoe.Discovery.Client;
+using Steeltoe.Extensions.Configuration.CloudFoundry;
 
 
 namespace bootcamp_core_ui
@@ -30,7 +30,7 @@ namespace bootcamp_core_ui
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(option => option.EnableEndpointRouting = false);
 
             services.AddDiscoveryClient(Configuration);
         }
@@ -44,7 +44,7 @@ namespace bootcamp_core_ui
 
             app.UseDiscoveryClient();
 
-            loggerFactory.AddConsole();
+            //loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
             {

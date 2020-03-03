@@ -1,7 +1,9 @@
 ---
 applications:
-- name: <enter name here>
-instances: 1
-memory: 256M
-services:
-- <enter registry instance name here>
+- name: sample-ui-<<your name here>>
+  buildpacks:
+    - dotnet_core_buildpack
+  instances: 1
+  memory: 256M
+  services:
+    - <<your registry service name>>

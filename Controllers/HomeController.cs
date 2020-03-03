@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
-using Pivotal.Discovery.Client;
+using Steeltoe.Common.Discovery;
 
 public class HomeController: Controller {
 
